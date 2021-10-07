@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="Client.Controls.MainUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.Controls"
+             mc:Ignorable="d" >
+    <Grid>
+        <Canvas Background="Lavender">
+            <ListView x:Name="ListView" FontSize = "14" FontFamily="Verdana" HorizontalAlignment="Center" Height="800" Margin="450,30,0,0" VerticalAlignment="Top" Width="700" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding UserName}" >
+                            <GridViewColumnHeader  Content="Имя пользователя" Click="UserColumnHeader_OnClick"/>
+                        </GridViewColumn>
+                        <GridViewColumn Width="300" DisplayMemberBinding="{Binding Text}">
+                            <GridViewColumnHeader Content="Сообщение"/>
+                        </GridViewColumn>
+                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding Time}">
+                            <GridViewColumnHeader Content="Время" Click="DateColumnHeader_OnClick"/>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox x:Name="UserName" Height="29" Margin="3,30,0,0" Text="" TextWrapping="Wrap" Width="384"/>
+            <Button Content="Ввести имя пользователя" HorizontalAlignment="Left" FontSize = "14" FontFamily="Verdana" Height="37" Margin="3,70,0,0" VerticalAlignment="Top" Width="384"/>
+            <TextBox x:Name="Message" HorizontalAlignment="Left" Height="94" Margin="3,200,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="384"/>
+            <Button Content="Отправить" HorizontalAlignment="Left" Height="37" FontSize = "14" FontFamily="Verdana" Margin="3,310,0,0" VerticalAlignment="Top" Width="384" Click="SendMessages"/>
+            <TextBox x:Name="StartDate" Height="29" Margin="1200,70,0,0" Text="" TextWrapping="Wrap" Width="300"/>
+            <Button Content="Ввести начальную дату(дд.мм.гггг)" HorizontalAlignment="Left" FontSize = "14" FontFamily="Verdana" Height="37" Margin="1200,110,0,0" VerticalAlignment="Top" Width="300"/>
+            <TextBox x:Name="EndDate" Height="29" Margin="1200,170,0,0" Text="" TextWrapping="Wrap" Width="300"/>
+            <Button Content="Ввести конечную дату(дд.мм.гггг)" HorizontalAlignment="Left" FontSize = "14" FontFamily="Verdana" Height="37" Margin="1200,210,0,0" VerticalAlignment="Top" Width="300"/>
+            <CheckBox x:Name="DateCheck" Margin="1480,38,0,0" Click="DateCheck_Click"/>
+            <Label Content="Выполнить сортировку по дате" FontSize = "16" FontFamily="Verdana" HorizontalAlignment="Left" Height="30" Margin="1200,28,0,0" VerticalAlignment="Top" Width="270"/>
+        </Canvas>
+    </Grid>
+</UserControl>
